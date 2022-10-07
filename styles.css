@@ -1,0 +1,123 @@
+/* // index // */
+.menu-container {
+  padding-top: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.nav-link.dropdown-toggle {
+  color: #000;
+  font-size: 22px;
+}
+.nav-link {
+  color: #000;
+  font-size: 22px;
+}
+.carousel {
+  margin-bottom: 60px;
+}
+h2 {
+  margin-bottom: 35px;
+  text-align: center;
+}
+.collection-cards {
+  margin-bottom: 60px;
+  background-color: rgba(200, 211, 207, 0.635);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+.card-categories {
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.card-categories:not(:last-child) {
+  margin-right: 15px;
+}
+.card-text {
+  color: #000;
+}
+.benefits {
+  margin-bottom: 60px;
+}
+.benefits-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.benefit-item:not(:last-child) {
+  margin-right: 50px;
+}
+.benefit-item__img {
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.benefit-item__text {
+  text-align: center;
+  font-size: 20px;
+}
+.benefit-item {
+  text-align: center;
+}
+.best-sellers {
+  background-color: rgba(200, 211, 207, 0.635);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.best-sellers__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.best-sellers__card {
+  margin-bottom: 30px;
+}
+.best-sellers__card:not(:last-child) {
+  margin-right: 15px;
+}
+.rewiews-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.d-grid {
+  margin-bottom: 30px;
+}
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+.footer-container {
+  background-color: rgba(200, 211, 207, 0.635);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* //how it works// */
+.steps-hero {
+  margin-bottom: 60px;
+}
+
+/* //category// */
+.category__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.category__item {
+  text-decoration: none;
+  color: #000;
+  margin-right: 15px;
+}
+
+/* //product// */
+.card.mb-3 {
+  border: none;
+}
