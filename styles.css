@@ -103,7 +103,12 @@ h2 {
 .steps-hero {
   margin-bottom: 60px;
 }
-
+.steps-image {
+  margin-bottom: 80px;
+}
+.steps-container {
+  margin-bottom: 60pxg;
+}
 /* //category// */
 .category__list {
   display: flex;
