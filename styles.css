@@ -109,6 +109,12 @@ h2 {
 .steps-container {
   margin-bottom: 60pxg;
 }
+.steps-card__wrapper {
+  display: flex;
+}
+.steps-image {
+  margin-right: 40px;
+}
 /* //category// */
 .category__list {
   display: flex;
