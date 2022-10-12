@@ -107,10 +107,11 @@ li {
   margin-bottom: 60px;
 }
 .steps-container {
-  margin-bottom: 60pxg;
+  margin-bottom: 80px;
 }
 .steps-card__wrapper {
   display: flex;
+  margin-bottom: 40px;
 }
 .steps-image {
   margin-right: 40px;
@@ -118,6 +119,9 @@ li {
 .steps-card__item {
   display: flex;
 }
+/* .steps-card__text {
+  font-style: 25px;
+} */
 /* //category// */
 .category__list {
   display: flex;
