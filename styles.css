@@ -19,6 +19,9 @@ h2 {
   margin-bottom: 35px;
   text-align: center;
 }
+li {
+  list-style: none;
+}
 .collection-cards {
   margin-bottom: 60px;
   background-color: rgba(200, 211, 207, 0.635);
@@ -103,9 +106,6 @@ h2 {
 .steps-hero {
   margin-bottom: 60px;
 }
-.steps-image {
-  margin-bottom: 80px;
-}
 .steps-container {
   margin-bottom: 60pxg;
 }
@@ -114,6 +114,9 @@ h2 {
 }
 .steps-image {
   margin-right: 40px;
+}
+.steps-card__item {
+  display: flex;
 }
 /* //category// */
 .category__list {
