@@ -107,6 +107,9 @@ li {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+.list-inline-item:not(:last-child) {
+ margin-right: 20px;
+} 
 
 /* //how it works// */
 .steps-hero {
@@ -219,6 +222,9 @@ li {
 }
 .product-btn {
   justify-content: start;
+}
+.checkout-link {
+  text-decoration: none;
 }
 /* signup, login */
 
