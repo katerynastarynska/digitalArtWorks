@@ -17,7 +17,6 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './client/signup.html'));
 })
 
-
 app.listen(port, () => {
     console.log("listening on port:", port)
 })
