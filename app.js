@@ -9,12 +9,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './client/index.html'));
 })
 app.get('/login', (req, res) => {
-    // console.log("access route /, METHOD = GET")
     res.sendFile(path.join(__dirname, './client/login.html'));
 })
 app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './client/signup.html'));
 })
+
 app.get('/how-it-works', (req, res) => {
     console.log("access route /, METHOD = GET")
     res.sendFile(path.join(__dirname, './client/how-it-works.html'));
