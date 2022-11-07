@@ -23,26 +23,24 @@ async function onFormSubmit(evt) {
 
     if (validatedForm) {
         console.log(formData);
-        // formEl.reset();
-        await fetch('/signup', {
+       const response = await fetch('/signup', {
             method: "POST",
             body: JSON.stringify(formData),
             headers: {
                 "Content-Type": "application/json; charset=UTF-8",
-            }},)
-            ;
-        return response.json();
+            }
+        });
+        formEl.reset();
+        console.log(response)
+        if(response.status !==200) {
+            const resBody = await response.json()
+            console.log(resBody)
+            Notiflix.Notify.failure('user with such email already exists');
+        }
     }
-
-    // const validatedForm = isFormDataValid(formData);
-    // if (validatedForm) {
-    //     console.log(formData)
-    //     formEl.reset();
-    // }
 }
 
 function isFormDataValid(formData) {
-    console.log("345")
     if (!formData.name || formData.name === "") {
         Notiflix.Notify.failure('Please provide your name');
         return false;
@@ -73,4 +71,3 @@ function isFormDataValid(formData) {
     }
     return true;
 }
-
