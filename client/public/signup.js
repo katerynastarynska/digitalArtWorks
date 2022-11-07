@@ -35,7 +35,7 @@ async function onFormSubmit(evt) {
         if(response.status !==200) {
             const resBody = await response.json()
             console.log(resBody)
-            Notiflix.Notify.failure('user with such email already exists');
+            Notiflix.Notify.failure('unable to create a new user, please check your information');
         }
     }
 }
@@ -62,7 +62,7 @@ function isFormDataValid(formData) {
         return false;
     }
     if (formData.password === !formData.passRepeat) {
-        Notiflix.Notify.failure('Your passwords doesn`t math');
+        Notiflix.Notify.failure('Your passwords doesn`t match');
         return false;
     }
     if (!formData.terms) {

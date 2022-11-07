@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
-const { getConnection } = require('./database/mongoose');
+const { getConnection } = require('./database/database');
 const userService = require('./users/service');
 const port = 3000;
 
@@ -36,6 +36,10 @@ app.post('/signup', async (req, res) => {
 app.get('/how-it-works', (req, res) => {
     console.log('access route /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/how-it-works.html'));
+})
+app.get('/categories', (req, res) => {
+    console.log('access route categories /, METHOD = GET')
+    res.sendFile(path.join(__dirname, './client/category.html'));
 })
 
 app.listen(port, async () => {
