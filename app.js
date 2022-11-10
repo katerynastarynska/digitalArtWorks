@@ -4,7 +4,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const { getConnection } = require('./database/database');
 const userService = require('./users/service');
-const categoriesService = require('./categories/service')
+const categoriesService = require('./categories/service');
+const { Error } = require('mongoose');
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, './client/public')));
@@ -43,9 +44,9 @@ app.get('/categories', async (req, res) => {
     res.sendFile(path.join(__dirname, './client/category.html'))
     try {
         await categoriesService.getCategory(req.body)
-    } catch (err) {
+    } catch (error) {
         res.status(400).json({
-            error: err
+            error: error
         })
         return
     }
