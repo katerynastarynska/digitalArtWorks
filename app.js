@@ -41,7 +41,7 @@ app.get('/how-it-works', (req, res) => {
 })
 app.get('/categories', async (req, res) => {
     console.log('access route categories /, METHOD = GET')
-    res.sendFile(path.join(__dirname, './client/category.html'))
+    res.sendFile(path.join(__dirname, './client/categories.html'))
     try {
         await categoriesService.getCategory(req.body)
     } catch (error) {
