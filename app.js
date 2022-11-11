@@ -59,9 +59,9 @@ app.get('/categories-data', async (req, res) => {
         console.log('categories -> ', categories);
         res.json(categories);
         res.end();
-    } catch (err) {
+    } catch (error) {
         res.status(400).json({
-            error: err
+            error: error
         })
         return
     }
