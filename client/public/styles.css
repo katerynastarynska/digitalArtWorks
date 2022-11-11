@@ -12,6 +12,10 @@
   color: #000;
   font-size: 22px;
 }
+.sign-btn {
+  font-weight: 18px;
+}
+
 .carousel {
   margin-bottom: 60px;
 }
@@ -31,11 +35,15 @@ li {
 
 .benefits {
   margin-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .benefits-list {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  padding-left: 0;
 }
 .benefit-item:not(:last-child) {
   margin-right: 50px;
@@ -51,6 +59,7 @@ li {
 }
 .benefit-item {
   text-align: center;
+  flex-basis: calc(100% / 4 - 50px);
 }
 .best-sellers {
   background-color: rgba(200, 211, 207, 0.635);
