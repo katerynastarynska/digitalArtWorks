@@ -21,12 +21,11 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './client/signup.html'));
 })
 app.post('/signup', async (req, res) => {
-    console.log(req.body);
     try {
         await userService.saveUser(req.body)
-    } catch (err) {
+    } catch (error) {
         res.status(400).json({
-            error: err
+            error: error
         })
         return
     }

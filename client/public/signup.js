@@ -23,18 +23,23 @@ async function onFormSubmit(evt) {
 
     if (validatedForm) {
         console.log(formData);
-       const response = await fetch('/signup', {
+        const response = await fetch('/signup', {
             method: "POST",
-            body: JSON.stringify(formData),
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                password: formData.password,
+                terms: formData.terms,
+            }),
+
             headers: {
                 "Content-Type": "application/json; charset=UTF-8",
             }
         });
         formEl.reset();
         console.log(response)
-        if(response.status !==200) {
+        if (response.status !== 200) {
             const resBody = await response.json()
-            console.log(resBody)
             Notiflix.Notify.failure('unable to create a new user, please check your information');
         }
     }

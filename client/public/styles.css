@@ -12,6 +12,9 @@
   color: #000;
   font-size: 22px;
 }
+.navbar-brand {
+  margin-right: 0;
+}
 .sign-btn {
   font-weight: 18px;
 }
