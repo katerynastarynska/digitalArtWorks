@@ -1,5 +1,6 @@
 const User = require('./model');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 async function saveUser(userData) {
   try {
@@ -33,7 +34,15 @@ async function loginUser(userData) {
         code: 401,
       }
     }
-    return user.id
+    const token = await jwt.sign(
+      {userId: user.id},
+      "SECRET_KEY",
+      {expiresIn: "2h"}
+    )
+    return {
+      userId: user.id,
+      token
+    }
   } catch (error) {
     throw error
   }

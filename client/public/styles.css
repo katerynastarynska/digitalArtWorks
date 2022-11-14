@@ -250,7 +250,8 @@ li {
   text-decoration: none;
 }
 .signup-container,
-.login-container {
+.login-container,
+.user-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -264,7 +265,8 @@ li {
   padding: 40px;
 }
 .signup-title,
-.login-title {
+.login-title,
+.user-title {
   margin-bottom: 15px;
 }
 .register-btn,
@@ -291,4 +293,24 @@ u {
 .checkout-card {
   border: none;
   padding-top: 40px;
+}
+
+/* user  */
+.user-container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.user-border{
+	display: flex;
+	align-items: center;
+justify-content: center;
+}
+.user-border:hover {
+	border-bottom: 1px solid #dee2e6;
+}
+.user-outline {
+	font-size: 16px;
+	font-weight: 700;
+	color:#fff;
+	margin-left: 2px;
 }

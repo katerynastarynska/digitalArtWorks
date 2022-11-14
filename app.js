@@ -1,15 +1,17 @@
 const express = require('express');
 const path = require('path');
-const app = express();
 const bodyParser = require('body-parser');
 const { getConnection } = require('./database/database');
 const userService = require('./users/service');
 const categoriesService = require('./categories/service');
-const { Error } = require('mongoose');
+const cookieParser = require('cookie-parser');
+
+const app = express();
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, './client/public')));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './client/index.html'));
@@ -26,19 +28,20 @@ app.post('/login', async (req, res) => {
         return;
     }
     try {
-        const userId = await userService.loginUser(body)
-        console.log(userId);
-       if(userId) {
-        res.status(200).json({
-            userId
-        })}
+        const { userId, token } = await userService.loginUser(body)
+        if (userId && token) {
+            res.cookie('token', token, {maxAge: 1800000})
+            res.status(200).json({
+                userId,
+                token
+            })
+        }
     } catch (error) {
         res.status(400).json({
             error: error
         })
         return;
     }
-
 })
 
 app.get('/signup', (req, res) => {
@@ -57,7 +60,9 @@ app.post('/signup', async (req, res) => {
         message: 'User created successfully'
     })
 })
-
+app.get('/user', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/user.html'));
+})
 app.get('/how-it-works', (req, res) => {
     console.log('access route /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/how-it-works.html'));
@@ -65,8 +70,7 @@ app.get('/how-it-works', (req, res) => {
 app.get('/categories', async (req, res) => {
     console.log('access route categories /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/categories.html'))
-    а
-})
+    })
 
 app.get('/categories-data', async (req, res) => {
     let categories;
