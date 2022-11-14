@@ -40,7 +40,7 @@ async function onFormSubmit(evt) {
         console.log(response)
         if (response.status !== 200) {
             const resBody = await response.json()
-            Notiflix.Notify.failure('unable to create a new user, please check your information');
+            Notiflix.Notify.failure('Unable to create a new user, please check your information');
         }
     }
 }

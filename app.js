@@ -17,6 +17,30 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, './client/login.html'));
 })
+app.post('/login', async (req, res) => {
+    const body = req.body;
+    if (!body.email || !body.password || body.length === 0) {
+        res.status(400).json({
+            error: "Please check your information"
+        })
+        return;
+    }
+    try {
+        const userId = await userService.loginUser(body)
+        console.log(userId);
+       if(userId) {
+        res.status(200).json({
+            userId
+        })}
+    } catch (error) {
+        res.status(400).json({
+            error: error
+        })
+        return;
+    }
+
+})
+
 app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, './client/signup.html'));
 })
@@ -27,10 +51,10 @@ app.post('/signup', async (req, res) => {
         res.status(400).json({
             error: error
         })
-        return
+        return;
     }
     res.status(200).json({
-        message: 'user created successfully'
+        message: 'User created successfully'
     })
 })
 
@@ -41,14 +65,7 @@ app.get('/how-it-works', (req, res) => {
 app.get('/categories', async (req, res) => {
     console.log('access route categories /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/categories.html'))
-    // try {
-    //     await categoriesService.getCategory(req.body)
-    // } catch (error) {
-    //     res.status(400).json({
-    //         error: error
-    //     })
-    //     return
-    // }
+    а
 })
 
 app.get('/categories-data', async (req, res) => {
@@ -65,11 +82,6 @@ app.get('/categories-data', async (req, res) => {
         return
     }
 })
-
-// app.get('/categories', (req, res) => {
-//     console.log('access route categories /, METHOD = GET')
-//     res.sendFile(path.join(__dirname, './client/category.html'));
-// })
 
 app.listen(port, async () => {
     console.log('listening on port:', port);

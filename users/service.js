@@ -11,10 +11,34 @@ async function saveUser(userData) {
 
     await user.save()
   } catch (error) {
-    throw 'unable to create a new user, please check your information'
+    throw 'Unable to create a new user, please check your information'
   }
 }
 
+async function loginUser(userData) {
+  try {
+    const user = await User.findOne({
+      email: userData.email
+    });
+    if (!user) {
+      throw {
+        error: "Please check your login information",
+        code: 404,
+      }
+    }
+    const passMatch = await bcrypt.compareSync(userData.password, user.password)
+    if (!passMatch) {
+      throw {
+        error: "Please check your login information",
+        code: 401,
+      }
+    }
+    return user.id
+  } catch (error) {
+    throw error
+  }
+}
 module.exports = {
-  saveUser
+  saveUser,
+  loginUser
 }
