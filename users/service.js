@@ -1,6 +1,6 @@
 const User = require('./model');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const { createToken } = require('./auth');
 
 async function saveUser(userData) {
   try {
@@ -34,11 +34,7 @@ async function loginUser(userData) {
         code: 401,
       }
     }
-    const token = await jwt.sign(
-      {userId: user.id},
-      "SECRET_KEY",
-      {expiresIn: "2h"}
-    )
+    const token = await createToken(user.id)
     return {
       userId: user.id,
       token
@@ -47,7 +43,21 @@ async function loginUser(userData) {
     throw error
   }
 }
+
+async function getUserById(userId) {
+  try {
+    const user = await User.findOne({
+      _id: userId
+    });
+    return user
+  } catch (error) {
+    throw "User not found"
+  }
+}
+
+
 module.exports = {
   saveUser,
-  loginUser
+  loginUser, 
+  getUserById
 }

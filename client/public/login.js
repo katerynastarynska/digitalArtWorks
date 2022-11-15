@@ -25,7 +25,9 @@ async function loginUser(evt) {
         });
         // formEl.reset();
         console.log(response);
-        if (response.status !== 200) {
+        if (response.status === 200) {
+            window.location = '/user';
+        } else if (response.status !== 200) {
             const resBody = await response.json()
             Notiflix.Notify.failure('Unable to login, please check your information');
         }

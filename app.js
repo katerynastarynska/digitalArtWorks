@@ -5,6 +5,8 @@ const { getConnection } = require('./database/database');
 const userService = require('./users/service');
 const categoriesService = require('./categories/service');
 const cookieParser = require('cookie-parser');
+const { auth } = require('./users/auth');
+
 
 const app = express();
 const port = 3000;
@@ -30,7 +32,7 @@ app.post('/login', async (req, res) => {
     try {
         const { userId, token } = await userService.loginUser(body)
         if (userId && token) {
-            res.cookie('token', token, {maxAge: 1800000})
+            res.cookie('token', token, { maxAge: 1800000 })
             res.status(200).json({
                 userId,
                 token
@@ -60,9 +62,20 @@ app.post('/signup', async (req, res) => {
         message: 'User created successfully'
     })
 })
-app.get('/user', (req, res) => {
-    res.sendFile(path.join(__dirname, './client/user.html'));
+app.get('/user', auth, async (req, res) => {
+    try {
+        const user = await userService.getUserById(req.userId);
+        res.sendFile(path.join(__dirname, './client/user.html'));
+
+    } catch (error) {
+        res.redirect('/login')
+        res.end()
+        return
+    }
+
 })
+
+
 app.get('/how-it-works', (req, res) => {
     console.log('access route /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/how-it-works.html'));
@@ -70,7 +83,7 @@ app.get('/how-it-works', (req, res) => {
 app.get('/categories', async (req, res) => {
     console.log('access route categories /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/categories.html'))
-    })
+})
 
 app.get('/categories-data', async (req, res) => {
     let categories;

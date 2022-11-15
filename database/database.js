@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { initializeApp } = require('firebase/app');
 let connection = '';
 
 async function getConnection() {
