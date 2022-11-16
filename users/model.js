@@ -12,6 +12,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    address: {
+        type: String,
+        required: true,
+    },
     terms: Boolean,
 });
 

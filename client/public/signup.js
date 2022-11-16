@@ -11,12 +11,14 @@ async function onFormSubmit(evt) {
     const email = formElements.emailId.value;
     const password = formElements.passwordId.value;
     const passRepeat = formElements.passRepeatId.value;
+    const address = formElements.addressId.value;
     const terms = formElements.checkbox.checked;
     const formData = {
         name,
         email,
         password,
         passRepeat,
+        address,
         terms,
     }
     const validatedForm = isFormDataValid(formData);
@@ -29,6 +31,7 @@ async function onFormSubmit(evt) {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,
+                address: formData.address,
                 terms: formData.terms,
             }),
 
@@ -40,7 +43,7 @@ async function onFormSubmit(evt) {
         console.log(response)
         if (response.status !== 200) {
             const resBody = await response.json()
-            Notiflix.Notify.failure('Unable to create a new user, please check your information');
+            Notiflix.Notify.failure('Unable to create a new user, please check your information!!!');
         }
     }
 }

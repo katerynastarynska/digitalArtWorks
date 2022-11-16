@@ -29,7 +29,7 @@ async function createToken(userId) {
     return await jwt.sign(
         { userId: userId },
         "SECRET_KEY",
-        { expiresIn: "2h" }
+        { expiresIn: "1h" }
     )
 }
 

@@ -24,15 +24,3 @@ function categoryMarkUp(category) {
         </div>
 </div>`
 }
-
-// function categoryMarkUp(category) {
-//     return `
-// <h2>${category.title}</h2>
-// <div class="category__list">
-//     <a class="category__item" href="#">
-//         <div class="card best-sellers__card" style="width: 24rem">
-//         </div>
-//     </a>
-// </div>
-// `
-// } 

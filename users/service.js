@@ -4,7 +4,7 @@ const { createToken } = require('./auth');
 
 async function saveUser(userData) {
   try {
-    const password = await bcrypt.hashSync(userData.password, 2)
+    const password = await bcrypt.hashSync(userData.password, 10)
     const user = new User({
       ...userData,
       password
@@ -37,6 +37,9 @@ async function loginUser(userData) {
     const token = await createToken(user.id)
     return {
       userId: user.id,
+      userName: user.name,
+      userEmail: user.email,
+      userAddress: user.address,
       token
     }
   } catch (error) {
@@ -47,14 +50,13 @@ async function loginUser(userData) {
 async function getUserById(userId) {
   try {
     const user = await User.findOne({
-      _id: userId
+      _id: userId, 
     });
     return user
   } catch (error) {
     throw "User not found"
   }
 }
-
 
 module.exports = {
   saveUser,

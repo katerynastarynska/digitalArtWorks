@@ -30,11 +30,14 @@ app.post('/login', async (req, res) => {
         return;
     }
     try {
-        const { userId, token } = await userService.loginUser(body)
+        const { userId, token, userName, userEmail, userAddress } = await userService.loginUser(body)
         if (userId && token) {
             res.cookie('token', token, { maxAge: 1800000 })
             res.status(200).json({
                 userId,
+                userName,
+                userEmail,
+                userAddress,
                 token
             })
         }
@@ -52,6 +55,7 @@ app.get('/signup', (req, res) => {
 app.post('/signup', async (req, res) => {
     try {
         await userService.saveUser(req.body)
+        console.log(req.body);
     } catch (error) {
         res.status(400).json({
             error: error
@@ -66,15 +70,27 @@ app.get('/user', auth, async (req, res) => {
     try {
         const user = await userService.getUserById(req.userId);
         res.sendFile(path.join(__dirname, './client/user.html'));
-
     } catch (error) {
         res.redirect('/login')
         res.end()
         return
     }
-
 })
 
+app.get('/user/:id', async (req, res) => {
+    console.log('userId params >>>>', req.params);
+    try {
+        const user = await userService.getUserById(req.params.id);
+        console.log('>>> found user by id >>>>> ', user);
+        res.json(user);
+        res.end();
+    } catch (error) {
+        res.status(400).json({
+            error: error
+        })
+        return
+    }
+})
 
 app.get('/how-it-works', (req, res) => {
     console.log('access route /, METHOD = GET')

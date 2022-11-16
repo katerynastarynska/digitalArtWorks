@@ -23,10 +23,13 @@ async function loginUser(evt) {
                 "Content-Type": "application/json; charset=UTF-8",
             }
         });
-        // formEl.reset();
-        console.log(response);
+        loginEl.reset();
+        const userInfo = await response.json();
+        console.log(userInfo);
+
         if (response.status === 200) {
-            window.location = '/user';
+            window.location = `/user?userId=${userInfo.userId}`;
+            // window.location = '/user';
         } else if (response.status !== 200) {
             const resBody = await response.json()
             Notiflix.Notify.failure('Unable to login, please check your information');
@@ -49,3 +52,5 @@ function isLoginFormDataValid(formData) {
     }
     return true;
 }
+
+

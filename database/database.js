@@ -1,5 +1,17 @@
 const mongoose = require('mongoose');
-const { initializeApp } = require('firebase/app');
+// const { initializeApp } = require('firebase/app');
+// const firebaseApp = initializeApp({
+//     apiKey: "API_KEY",
+//     authDomain: "PROJECT_ID.firebaseapp.com",
+//     databaseURL: "https://DATABASE_NAME.firebaseio.com",
+//     projectId: "PROJECT_ID",
+//     storageBucket: "PROJECT_ID.appspot.com",
+//     messagingSenderId: "SENDER_ID",
+//     appId: "APP_ID",
+//     measurementId: "G-MEASUREMENT_ID",
+// })
+// console.log(firebaseApp);
+
 let connection = '';
 
 async function getConnection() {
