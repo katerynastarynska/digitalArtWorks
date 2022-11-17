@@ -30,8 +30,13 @@ async function loginUser(evt) {
         if (response.status === 200) {
             window.location = `/user?userId=${userInfo.userId}`;
             // window.location = '/user';
-        } else if (response.status !== 200) {
+        } else if (response.status === 401) {
             const resBody = await response.json()
+            Notiflix.Notify.failure('Unable to login, please check your information');
+        } else if (response.status === 404) {
+            const resBody = await response.json()
+            Notiflix.Notify.failure('Unable to login, please check your information');
+        } else {
             Notiflix.Notify.failure('Unable to login, please check your information');
         }
     }

@@ -3,9 +3,15 @@ const categoryEl = document.querySelector('.categories')
 console.log(categoryEl)
 
 async function fetchCategories() {
-    const data = await fetch('/categories-data')
-    console.log('>>>> ui categories >>>>', data)
-    const categories = await data.json()
+    const response = await fetch('/categories-data')
+    console.log('>>>> ui categories >>>>', response)
+
+    if (response.status !== 200) {
+        Notiflix.Notify.failure('Category was not found')
+        return;
+    }
+
+    const categories = await response.json()
     console.log(categories);
 
     categories.map((category) => {

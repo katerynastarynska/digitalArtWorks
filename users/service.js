@@ -12,7 +12,7 @@ async function saveUser(userData) {
 
     await user.save()
   } catch (error) {
-    throw 'Unable to create a new user, please check your information'
+    throw 'Unable to create a new user'
   }
 }
 

@@ -9,8 +9,13 @@ const userId = urlParams.get('userId');
 console.log(userId);
 
 async function fetchUser() {
-    const rawUser = await fetch(`/user/${userId}`);
-    const user = await rawUser.json();
+    const response = await fetch(`/user/${userId}`);
+
+    if (response.status !== 200) {
+        Notiflix.Notify.failure('User was not found')
+        return;
+    }
+    const user = await response.json();
 
     console.log('>>>>> found user by id in ui >>>>', user);
     userInfo.insertAdjacentHTML('beforeend', userMarkUp(user))
