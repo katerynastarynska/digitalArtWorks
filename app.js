@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { getConnection } = require('./database/database');
 const userService = require('./users/service');
 const categoriesService = require('./categories/service');
+const productsService = require('./products/service')
 const cookieParser = require('cookie-parser');
 const { auth } = require('./users/auth');
 
@@ -66,6 +67,7 @@ app.post('/signup', async (req, res) => {
         message: 'User created successfully'
     })
 })
+
 app.get('/user', auth, async (req, res) => {
     try {
         const user = await userService.getUserById(req.userId);
@@ -76,7 +78,6 @@ app.get('/user', auth, async (req, res) => {
         return
     }
 })
-
 app.get('/user/:id', async (req, res) => {
     console.log('userId params >>>>', req.params);
     try {
@@ -92,15 +93,10 @@ app.get('/user/:id', async (req, res) => {
     }
 })
 
-app.get('/how-it-works', (req, res) => {
-    console.log('access route /, METHOD = GET')
-    res.sendFile(path.join(__dirname, './client/how-it-works.html'));
-})
 app.get('/categories', async (req, res) => {
     console.log('access route categories /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/categories.html'))
 })
-
 app.get('/categories-data', async (req, res) => {
     let categories;
     try {
@@ -114,6 +110,30 @@ app.get('/categories-data', async (req, res) => {
         })
         return
     }
+})
+
+app.get('/products', async (req, res) => {
+    console.log('access route products /, METHOD = GET')
+    res.sendFile(path.join(__dirname, './client/products.html'))
+})
+app.get('/products-data/:categoryId', async (req, res) => {
+    let products;
+    try {
+        products = await productsService.getProducts()
+        console.log('products -> ', products);
+        res.json(products);
+        res.end();
+    } catch (error) {
+        res.status(400).json({
+            error: error
+        })
+        return
+    }
+})
+
+app.get('/how-it-works', (req, res) => {
+    console.log('access route /, METHOD = GET')
+    res.sendFile(path.join(__dirname, './client/how-it-works.html'));
 })
 
 app.listen(port, async () => {

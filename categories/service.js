@@ -1,4 +1,5 @@
 const Category = require('./model');
+
 async function getCategory() {
     let categories = [];
     try {
