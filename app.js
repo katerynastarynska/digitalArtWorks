@@ -112,15 +112,17 @@ app.get('/categories-data', async (req, res) => {
     }
 })
 
-app.get('/products', async (req, res) => {
+app.get('/categories/products', async (req, res) => {
     console.log('access route products /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/products.html'))
 })
-app.get('/products-data/:categoryId', async (req, res) => {
+
+app.get('/data/:categoryId', async (req, res) => {
+    console.log('category params from controller >>>>', req.params);
     let products;
     try {
-        products = await productsService.getProducts()
-        console.log('products -> ', products);
+        products = await productsService.getProductsByCategoryId(req.params.categoryId);
+        console.log('products from appjs-> ', products);
         res.json(products);
         res.end();
     } catch (error) {

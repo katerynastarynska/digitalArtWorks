@@ -1,10 +1,10 @@
 const Product = require('./model');
 
-async function getProducts() {
+async function getProductsByCategoryId(paramsId) {
     let products = [];
     try {
-        products = await Product.find();
-        console.log('------>', products);
+        products = await Product.find({ category_id: paramsId });
+        console.log('service products bu category id', products);
         return products;
     } catch (error) {
         console.log(error)
@@ -12,5 +12,5 @@ async function getProducts() {
 }
 
 module.exports = {
-    getProducts,
+    getProductsByCategoryId,
 }

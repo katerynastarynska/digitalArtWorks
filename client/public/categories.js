@@ -21,12 +21,18 @@ async function fetchCategories() {
 fetchCategories()
 
 function categoryMarkUp(category) {
+    // const link = `products-data/${category._id}`
+
+    const link = `/categories/products?categoryId=${category._id}`;
+
+    console.log(link);
     return `
-<div class="card card-categories" style="width: 22rem">
-    <a class="card-categories__link" href="#">
-        <img src=${category.image} class="card-img-top" alt="choose a category">
-        <div class="card-body">
-            <h2 class="card-title">${category.title}</h2>
-        </div>
-</div>`
-}
+    <div class="card card-categories" style="width: 22rem">
+    <a class="card-categories__link" href="${link}">
+      <img src="${category.image}" class="card-img-top" alt="choose a category" />
+      <div class="card-body">
+        <h2 class="card-title">${category.title}</h2>
+      </div>
+    </a>
+  </div>
+            `}
