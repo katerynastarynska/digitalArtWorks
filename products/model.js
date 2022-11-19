@@ -8,10 +8,7 @@ const productSchema = new Schema({
     },
     title: String,
     price: Number,
-    category: {
-        type: mongoose.Types.ObjectId,
-        ref: "Category",
-    },
+    category_id: String,
     isBestseller: Boolean,
     options: Array,
     quantity: Number,

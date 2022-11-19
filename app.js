@@ -122,7 +122,6 @@ app.get('/data/:categoryId', async (req, res) => {
     let products;
     try {
         products = await productsService.getProductsByCategoryId(req.params.categoryId);
-        console.log('products from appjs-> ', products);
         res.json(products);
         res.end();
     } catch (error) {

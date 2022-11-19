@@ -17,8 +17,8 @@ async function fetchProductsByCategoryId() {
         Notiflix.Notify.failure('Product was not found')
         return;
     }
+    console.log('>>>>> found products by id in ui >>>>', response);
     const products = await response.json();
-    console.log('>>>>> found products by id in ui >>>>', products);
 
     products.map((product) => {
         productsList.insertAdjacentHTML('beforeend', productsMarkUp(product))
