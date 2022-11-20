@@ -10,6 +10,18 @@ async function getProductsByCategoryId(paramsCategoryId) {
     }
 }
 
+async function getBestsellers() {
+    let products = [];
+    try {
+        products = await Product.find({ isBestseller: true });
+        console.log('bestsellers | -> service ', products);
+        return products;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getProductsByCategoryId,
+    getBestsellers
 }

@@ -78,6 +78,7 @@ app.get('/user', auth, async (req, res) => {
         return
     }
 })
+
 app.get('/user/:id', async (req, res) => {
     console.log('userId params >>>>', req.params);
     try {
@@ -97,6 +98,7 @@ app.get('/categories', async (req, res) => {
     console.log('access route categories /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/categories.html'))
 })
+
 app.get('/categories-data', async (req, res) => {
     let categories;
     try {
@@ -122,7 +124,28 @@ app.get('/data/:categoryId', async (req, res) => {
     let products;
     try {
         products = await productsService.getProductsByCategoryId(req.params.categoryId);
+        console.log(products);
         res.json(products);
+        res.end();
+    } catch (error) {
+        res.status(400).json({
+            error: error
+        })
+        return
+    }
+})
+
+app.get('/bestsellers', (req, res) => {
+    console.log('access route bestsellers/, METHOD = GET')
+    res.sendFile(path.join(__dirname, './client/bestsellers.html'));
+})
+
+app.get('/products-data/bestsellers', async (req, res) => {
+    let bestsellers;
+    try {
+        bestsellers = await productsService.getBestsellers();
+        console.log('>>> app js | bestsellers ', bestsellers);
+        res.json(bestsellers);
         res.end();
     } catch (error) {
         res.status(400).json({
@@ -135,10 +158,6 @@ app.get('/data/:categoryId', async (req, res) => {
 app.get('/how-it-works', (req, res) => {
     console.log('access route /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/how-it-works.html'));
-})
-app.get('/bestsellers', (req, res) => {
-    console.log('access route bestsellers/, METHOD = GET')
-    res.sendFile(path.join(__dirname, './client/bestsellers.html'));
 })
 
 app.listen(port, async () => {

@@ -39,3 +39,4 @@ function productsMarkUp(product) {
   </a>
     `
 }
+

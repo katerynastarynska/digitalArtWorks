@@ -21,8 +21,6 @@ async function fetchCategories() {
 fetchCategories()
 
 function categoryMarkUp(category) {
-    // const link = `products-data/${category._id}`
-
     const link = `/categories/products?categoryId=${category._id}`;
 
     console.log(link);
