@@ -136,6 +136,10 @@ app.get('/how-it-works', (req, res) => {
     console.log('access route /, METHOD = GET')
     res.sendFile(path.join(__dirname, './client/how-it-works.html'));
 })
+app.get('/bestsellers', (req, res) => {
+    console.log('access route bestsellers/, METHOD = GET')
+    res.sendFile(path.join(__dirname, './client/bestsellers.html'));
+})
 
 app.listen(port, async () => {
     console.log('listening on port:', port);
