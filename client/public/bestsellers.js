@@ -3,13 +3,13 @@ console.log("bestsellers");
 const bestsellersList = document.querySelector('.best-sellers__list')
 console.log(bestsellersList);
 
-const queryString = window.location.search;
-console.log(queryString);
-const urlParams = new URLSearchParams(queryString);
-console.log(urlParams);
+// const queryString = window.location.search;
+// console.log(queryString);
+// const urlParams = new URLSearchParams(queryString);
+// console.log(urlParams);
 
-const isBestseller = urlParams.get('isBestseller');
-console.log(isBestseller);
+// const isBestseller = urlParams.get('isBestseller');
+// console.log(isBestseller);
 
 async function fetchBestsellers() {
     const response = await fetch('/products-data/bestsellers');
