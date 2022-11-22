@@ -1,4 +1,5 @@
-import { fetchCategoriesById } from './util.js';
+import { fetchCategoriesById } from './util.m.js';
+console.log("index");
 
 const bestsellersList = document.querySelector('.best-sellers__list')
 console.log(bestsellersList);

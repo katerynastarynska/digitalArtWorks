@@ -1,4 +1,4 @@
-import { fetchCategoriesById } from './util.js';
+import { fetchCategoriesById } from './util.m.js';
 
 const productsList = document.querySelector('.products__list')
 console.log(productsList);

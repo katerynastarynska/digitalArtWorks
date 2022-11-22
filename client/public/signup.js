@@ -1,4 +1,4 @@
-import { fetchCategoriesById } from './util.js';
+import { fetchCategoriesById } from './util.m.js';
 
 const formEl = document.querySelector(".signup-form");
 formEl.addEventListener('submit', onFormSubmit);

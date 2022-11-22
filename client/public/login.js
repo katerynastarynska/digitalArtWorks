@@ -1,4 +1,4 @@
-import { fetchCategoriesById } from './util.js';
+import { fetchCategoriesById } from './util.m.js';
 
 const loginEl = document.querySelector('.login-form')
 console.log(loginEl);

@@ -1,4 +1,4 @@
-import { fetchCategoriesById } from './util.js';
+import { fetchCategoriesById } from './util.m.js';
 
 const userInfo = document.querySelector('.user-info')
 console.log(userInfo);
