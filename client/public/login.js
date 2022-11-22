@@ -1,7 +1,10 @@
-console.log('login');
+import { fetchCategoriesById } from './util.js';
 
 const loginEl = document.querySelector('.login-form')
 console.log(loginEl);
+
+fetchCategoriesById();
+
 loginEl.addEventListener('submit', loginUser);
 
 async function loginUser(evt) {

@@ -1,4 +1,5 @@
-console.log("products");
+import { fetchCategoriesById } from './util.js';
+
 const productsList = document.querySelector('.products__list')
 console.log(productsList);
 
@@ -9,6 +10,8 @@ console.log(urlParams);
 
 const categoryId = urlParams.get('categoryId');
 console.log(categoryId);
+
+fetchCategoriesById();
 
 async function fetchProductsByCategoryId() {
     const response = await fetch(`/data/${categoryId}`);

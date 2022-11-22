@@ -1,6 +1,9 @@
-console.log("user");
+import { fetchCategoriesById } from './util.js';
+
 const userInfo = document.querySelector('.user-info')
 console.log(userInfo);
+
+fetchCategoriesById();
 
 const queryString = window.location.search;
 console.log(queryString);

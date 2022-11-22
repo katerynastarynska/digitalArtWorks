@@ -1,35 +1,9 @@
-console.log("index");
+import { fetchCategoriesById } from './util.js';
 
-const categoriesMenu = document.querySelector('.dropdown-menu');
-console.log(categoriesMenu);
 const bestsellersList = document.querySelector('.best-sellers__list')
 console.log(bestsellersList);
 
-async function fetchCategoriesById() {
-
-    const response = await fetch('/categories-data')
-    console.log('>>>>> found categories by id in ui INDEX >>>>', response);
-
-    if (response.status !== 200) {
-        Notiflix.Notify.failure('Category was not found')
-        return;
-    }
-    const categories = await response.json()
-    console.log(categories);
-
-    categories.map((category) => {
-        categoriesMenu.insertAdjacentHTML('beforeend', categoryItemMarkUp(category))
-    })
-}
-fetchCategoriesById()
-
-function categoryItemMarkUp(category) {
-    const categoryLink = `/categories/products?categoryId=${category._id}`;
-    console.log(categoryLink);
-    return `
-    <li><a class="dropdown-item" href="${categoryLink}">${category.title}</a></li>
-    `
-}
+fetchCategoriesById();
 
 async function fetchBestsellers() {
     const response = await fetch('/products-data/bestsellers');

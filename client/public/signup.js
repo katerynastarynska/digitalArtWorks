@@ -1,7 +1,9 @@
-console.log("hello")
+import { fetchCategoriesById } from './util.js';
 
 const formEl = document.querySelector(".signup-form");
 formEl.addEventListener('submit', onFormSubmit);
+
+fetchCategoriesById();
 
 async function onFormSubmit(evt) {
     evt.preventDefault();
