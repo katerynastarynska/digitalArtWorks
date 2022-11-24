@@ -163,6 +163,18 @@ app.get('/how-it-works', (req, res) => {
     res.sendFile(path.join(__dirname, './client/how-it-works.html'));
 })
 
+app.get('/categories/products/product', async (req, res) => {
+    console.log('access route products to 1 product /, METHOD = GET')
+    res.sendFile(path.join(__dirname, './client/product.html'))
+})
+
+// app.get('/products/:productId',  (req, res) => {
+//     // let product;
+//     // try{
+//     //     product = await getProductByProductId()
+//     // }
+// })
+
 app.listen(port, async () => {
     console.log('listening on port:', port);
     await getConnection();
