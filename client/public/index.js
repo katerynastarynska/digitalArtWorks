@@ -54,8 +54,10 @@ async function fetchBestsellers() {
 fetchBestsellers()
 
 function bestsellersMarkUp(bestseller) {
+  const url = `/product?productId=${bestseller._id}`;
+
     return `
-    <a class="products__item" href="#">
+    <a class="products__item" href=${url}>
     <div class="card product-card" style="width: 24rem">
       <img src="${bestseller.image}" class="card-img-top" alt="product image" />
       <div class="card-body best-sellers__card-body">

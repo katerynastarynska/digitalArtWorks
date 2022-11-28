@@ -33,7 +33,6 @@ fetchCategoriesById()
 
 async function fetchCategories() {
   const response = await fetch('/categories-data')
-  console.log('>>>> ui categories >>>>', response)
 
   if (response.status !== 200) {
     Notiflix.Notify.failure('Category was not found')

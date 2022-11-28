@@ -27,9 +27,7 @@
             />
           </a>
           <div class="navbar-menu">
-            <a href="/signup"
-              ><button class="btn btn-light">Sign up</button></a
-            >
+            <a href="/signup"><button class="btn btn-light">Sign up</button></a>
             <a href="./checkout.html">
               <img src="/9-95.svg" alt="shopping cart" width="100" />
             </a>
@@ -46,17 +44,8 @@
               href="#"
               role="button"
               aria-expanded="false"
-              >Shop by collection</a
-            >
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <!-- <li><a class="dropdown-item" href="#">Family</a></li>
-              <li><a class="dropdown-item" href="#">Baby</a></li>
-              <li><a class="dropdown-item" href="#">Home</a></li>
-              <li><a class="dropdown-item" href="category.html">Pets</a></li>
-              <li><a class="dropdown-item" href="#">Wedding</a></li>
-              <li><a class="dropdown-item" href="#">Couples</a></li>
-              <li><a class="dropdown-item" href="#">Friendship</a></li> -->
-            </ul>
+              >Shop by collection</a>
+            <ul class="dropdown-menu dropdown-menu-dark"></ul>
           </li>
 
           <li class="nav-item">
@@ -90,112 +79,7 @@
 
     <main>
       <div class="container-fluid product-container">
-        <div class="product-description">
-          <img
-            src="./images/product1.jpg"
-            class="product-image img-fluid rounded"
-            alt="print picture"
-          />
-          <div class="produst-item__wrap">
-            <ul class="product-item__list">
-              <li class="product-item__pictures">
-                <img
-                  src="./images/product3-small.jpg"
-                  class="product-image__set img-fluid rounded"
-                  alt="print picture option"
-                />
-              </li>
-              <li class="product-item__pictures">
-                <img
-                  src="./images/product2-small.jpg"
-                  class="product-image__set img-fluid rounded"
-                  alt="print picture option"
-                />
-              </li>
-              <li class="product-item__pictures">
-                <img
-                  src="./images/product4-small.jpg"
-                  class="product-image__set img-fluid rounded"
-                  alt="print picture option"
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="product-text">
-          <div class="card-body">
-            <h4 class="product-title">
-              The Best Cat Friends, Watercolor Printable Art
-            </h4>
-            <h2 class="product-price">CAD $18+</h2>
-            <div class="product-options">
-              <label for="option-name" class="product-options__text"
-                >Size and shape</label
-              >
-              <div class="product-options__wrap">
-                <select
-                  class="product-options__input"
-                  required="required"
-                  id="option-name"
-                >
-                  <option selected>Selest size and shape</option>
-                  <option value="1">Square 10x10 inches (CAD $18)</option>
-                  <option value="2">Rectangle 10x12 inches (CAD $20)</option>
-                  <option value="3">Circle 10 inches (CAD $20)</option>
-                  <option value="4">Oval 10x14 inches (CAD $24)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="product-options">
-              <label for="option-name" class="product-options__text"
-                >Quantity</label
-              >
-              <div class="product-options__wrap">
-                <select
-                  class="product-options__input"
-                  required="required"
-                  id="option-name"
-                >
-                  <option selected>1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="product-options">
-              <label for="option-comment" class="product-options__text"
-                >Add your personalization (optional)</label
-              >
-              <p class="product-options__option">
-                If you would like to add a name or some text, please enter
-                below. Thank you!
-              </p>
-              <textarea
-                name="option-comment"
-                id="option-comment"
-                class="product-options__comment"
-                placeholder="Please enter your text"
-              ></textarea>
-              <a class="checkout-link" href="./checkout.html">
-                <div class="d-grid gap-2 col-12">
-                  <button class="btn btn-secondary product-btn" type="button">
-                    Add to cart
-                  </button>
-                </div>
-              </a>
-            </div>
-
-            <h5>Description</h5>
-            <p class="card-text">
-              This product is a DIGITAL file which you can download and print.
-              You will receive a digital file, not a physical product.
-            </p>
-          </div>
+        <div class="product-wrap">  
         </div>
       </div>
     </main>
@@ -214,11 +98,7 @@
             <ul class="list-inline social-list">
               <li class="list-inline-item social-list__item">
                 <a href="https://twitter.com/" target="_blank" title="twitter">
-                  <img
-                    src="/icons/twitter.svg"
-                    alt="twitter"
-                    width="25px"
-                  />
+                  <img src="/icons/twitter.svg" alt="twitter" width="25px" />
                 </a>
               </li>
               <li class="list-inline-item social-list__item">
@@ -227,11 +107,7 @@
                   target="_blank"
                   title="facebook"
                 >
-                  <img
-                    src="/icons/facebook.svg"
-                    alt="facebook"
-                    width="25px"
-                  />
+                  <img src="/icons/facebook.svg" alt="facebook" width="25px" />
                 </a>
               </li>
               <li class="list-inline-item social-list__item">
@@ -275,9 +151,7 @@
                 <a href="#" class="text-muted">New arrivals</a>
               </li>
               <li class="mb-2">
-                <a href="/how-it-works" class="text-muted"
-                  >How it works</a
-                >
+                <a href="/how-it-works" class="text-muted">How it works</a>
               </li>
             </ul>
           </div>
@@ -324,15 +198,15 @@
       </div>
     </footer>
 
-    <!-- <script src="index.js" type="module"></script> -->
+    <script src="/product.js" type="module"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
     <script
-    src="https://cdn.jsdelivr.net/npm/notiflix@3.2.5"
-    type="module"
-  ></script>
+      src="https://cdn.jsdelivr.net/npm/notiflix@3.2.5"
+      type="module"
+    ></script>
   </body>
 </html>

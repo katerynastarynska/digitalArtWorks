@@ -185,21 +185,29 @@ li {
 }
 .product-description {
   margin-right: 40px;
+  display: flex;
   /* width: 60%; */
 }
-.product-item__list {
+
+/* .product-item__list {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-}
+} */
 
-.product-item__pictures {
+/* .product-item__pictures {
   margin-right: 10px;
   margin-bottom: 10px;
-}
+} */
 .product-image {
-  margin-bottom: 20px;
+  margin-bottom: auto;
+  margin-right: 40px;
+
 }
+/* .product-text {
+  display: flex;
+  flex-wrap: wrap;
+} */
 .product-price {
   text-align: left;
   margin-bottom: 25px;

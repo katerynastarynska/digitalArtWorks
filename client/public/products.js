@@ -41,6 +41,7 @@ fetchCategoriesById()
 
 async function fetchProductsByCategoryId() {
     const response = await fetch(`/data/${categoryId}`);
+    console.log(response);
 
     if (response.status !== 200) {
         Notiflix.Notify.failure('Product was not found')
@@ -48,6 +49,7 @@ async function fetchProductsByCategoryId() {
     }
     console.log('>>>>> found products by id in ui >>>>', response);
     const products = await response.json();
+    console.log(products);
 
     products.map((product) => {
         productsList.insertAdjacentHTML('beforeend', productsMarkUp(product))
@@ -56,10 +58,12 @@ async function fetchProductsByCategoryId() {
 fetchProductsByCategoryId()
 
 function productsMarkUp(product) {
+  const url = `/product?productId=${product._id}`;
+  console.log(url);
     return `
-    <a class="products__item" href="#">
+    <a class="products__item" href=${url}>
     <div class="card product-card" style="width: 24rem">
-      <img src="${product.image}" class="card-img-top" alt="product image" />
+      <img src=${product.image} class="card-img-top" alt="product image" />
       <div class="card-body best-sellers__card-body">
         <h5 class="card-title">${product.title}</h5>
         <p class="card-text">From $ ${product.price} CAD</p>

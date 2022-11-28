@@ -21,7 +21,20 @@ async function getBestsellers() {
     }
 }
 
+async function getProductByProductId(paramsProductId) {
+    console.log('>>>> service product id >>>> ', paramsProductId);
+    let product = "";
+    try {
+        product = await Product.findById(paramsProductId);
+        console.log('product by id | -> service ', product);
+        return product;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
     getProductsByCategoryId,
-    getBestsellers
+    getBestsellers,
+    getProductByProductId
 }
