@@ -28,7 +28,7 @@
           </a>
           <div class="navbar-menu">
             <a href="/signup"><button class="btn btn-light">Sign up</button></a>
-            <a href="./checkout.html">
+            <a href="/checkout">
               <img src="/9-95.svg" alt="shopping cart" width="100" />
             </a>
           </div>
@@ -46,15 +46,7 @@
               aria-expanded="false"
               >Shop by collection</a
             >
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <!-- <li><a class="dropdown-item" href="#">Family</a></li>
-              <li><a class="dropdown-item" href="#">Baby</a></li>
-              <li><a class="dropdown-item" href="#">Home</a></li>
-              <li><a class="dropdown-item" href="#">Pets</a></li>
-              <li><a class="dropdown-item" href="#">Wedding</a></li>
-              <li><a class="dropdown-item" href="#">Couples</a></li>
-              <li><a class="dropdown-item" href="#">Friendship</a></li> -->
-            </ul>
+            <ul class="dropdown-menu dropdown-menu-dark"></ul>
           </li>
 
           <li class="nav-item">
@@ -219,69 +211,82 @@
   </body>
 </html>
 
-
-
-function productMarkUp(product) {
-  let res = '';
-  res += `
-    <div class="product-description">
-        <img src=${product.image} class="product-image img-fluid rounded" alt="product picture" width="500px" height="auto"/>
-          <div class="product-text">
-            <div class="card-body">
-            <h4 class="product-title">${product.title}</h4>
-            <h2 class="product-price">CAD $${product.price}+</h2>
-            <div class="product-options">
-                <label for="option-name" class="product-options__text">Size and shape</label>
-                <div class="product-options__wrap">
-                    <select class="product-options__input" required="required" id="option-name">
-                    <option selected>Selest size and shape</option>`
-
-  product.options.forEach((option, index) => {
-    res += `<option value=${index + 1}>${option}</option>`
-  })
-
-  res += ` </select>
-            </div>
-          </div>
-    
-          <div class="product-options">
-            <label for="option-name" class="product-options__text">Quantity</label>
-            <div class="product-options__wrap">
-              <select class="product-options__input" required="required" id="option-name">`
-
-  Array.from({ length: product.quantity }, (key, value) => value + 1).forEach((num) => {
-    res += `<option value=${num}>${num}</option>`
-  })
-
-  res += `</select>
-            </div>
-          </div>
-    
-          <div class="product-options">
-            <label for="option-comment" class="product-options__text">Add your personalization (optional)</label>
-            <p class="product-options__option">
-              If you would like to add a name or some text, please enter
-              below. Thank you!
-            </p>
-            <textarea name="option-comment"
-              id="option-comment"
-              class="product-options__comment"
-              placeholder="Please enter your text"></textarea>
-            <a class="checkout-link" href="./checkout.html">
-              <div class="d-grid gap-2 col-12">
-                <button class="btn btn-secondary product-btn" type="button">Add to cart
-                </button>
-              </div>
-            </a>
-          </div>
-    
-          <h5>Description</h5>
-          <p class="card-text">
-            This product is a DIGITAL file which you can download and print.
-            You will receive a digital file, not a physical product.
-          </p>
+function productMarkUp(product) { let res = ''; res += `
+<div class="product-description">
+  <img
+    src="${product.image}"
+    class="product-image img-fluid rounded"
+    alt="product picture"
+    width="500px"
+    height="auto"
+  />
+  <div class="product-text">
+    <div class="card-body">
+      <h4 class="product-title">${product.title}</h4>
+      <h2 class="product-price">CAD $${product.price}+</h2>
+      <div class="product-options">
+        <label for="option-name" class="product-options__text"
+          >Size and shape</label
+        >
+        <div class="product-options__wrap">
+          <select
+            class="product-options__input"
+            required="required"
+            id="option-name"
+          >
+            <option selected>Selest size and shape</option>
+            ` product.options.forEach((option, index) => { res += `
+            <option value="${index" + 1}>${option}</option>
+            ` }) res += `
+          </select>
         </div>
       </div>
-    </div>`
-  return res;
-}
+
+      <div class="product-options">
+        <label for="option-name" class="product-options__text">Quantity</label>
+        <div class="product-options__wrap">
+          <select
+            class="product-options__input"
+            required="required"
+            id="option-name"
+          >
+            ` Array.from({ length: product.quantity }, (key, value) => value +
+            1).forEach((num) => { res += `
+            <option value="${num}">${num}</option>
+            ` }) res += `
+          </select>
+        </div>
+      </div>
+
+      <div class="product-options">
+        <label for="option-comment" class="product-options__text"
+          >Add your personalization (optional)</label
+        >
+        <p class="product-options__option">
+          If you would like to add a name or some text, please enter below.
+          Thank you!
+        </p>
+        <textarea
+          name="option-comment"
+          id="option-comment"
+          class="product-options__comment"
+          placeholder="Please enter your text"
+        ></textarea>
+        <a class="checkout-link" href="./checkout.html">
+          <div class="d-grid gap-2 col-12">
+            <button class="btn btn-secondary product-btn" type="button">
+              Add to cart
+            </button>
+          </div>
+        </a>
+      </div>
+
+      <h5>Description</h5>
+      <p class="card-text">
+        This product is a DIGITAL file which you can download and print. You
+        will receive a digital file, not a physical product.
+      </p>
+    </div>
+  </div>
+</div>
+` return res; }

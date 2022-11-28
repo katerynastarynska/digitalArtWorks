@@ -102,7 +102,7 @@ function productMarkUp(product) {
               id="option-comment"
               class="product-options__comment"
               placeholder="Please enter your text"></textarea>
-            <a class="checkout-link" href="./checkout.html">
+            <a class="checkout-link" href="/checkout">
               <div class="d-grid gap-2 col-12">
                 <button class="btn btn-secondary product-btn" type="button">Add to cart
                 </button>

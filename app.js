@@ -184,7 +184,10 @@ app.get('/data-product/:productId', async (req, res) => {
     }
 })
 
-
+app.get('/checkout', (req, res) => {
+    console.log('access route bestsellers/, METHOD = GET')
+    res.sendFile(path.join(__dirname, './client/checkout.html'));
+})
 
 app.listen(port, async () => {
     console.log('listening on port:', port);
