@@ -1,21 +1,15 @@
 const productsList = document.querySelector('.products__list')
-console.log(productsList);
 
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-console.log(urlParams);
-
 const categoryId = urlParams.get('categoryId');
-console.log(categoryId);
 
 async function fetchCategoriesById() {
 
   const categoriesMenu = document.querySelector('.dropdown-menu');
-  console.log(categoriesMenu);
 
   const response = await fetch('/categories-data')
-  console.log('>>>>> found categories by id in ui INDEX >>>>', response);
+  console.log('>>>>> found categories by id in ui>>>>', response);
 
   if (response.status !== 200) {
       Notiflix.Notify.failure('Category was not found')
@@ -31,7 +25,6 @@ async function fetchCategoriesById() {
 
 function categoryItemMarkUp(category) {
   const categoryLink = `/categories/products?categoryId=${category._id}`;
-  console.log(categoryLink);
   return `
   <li><a class="dropdown-item" href="${categoryLink}">${category.title}</a></li>
   `
@@ -41,7 +34,6 @@ fetchCategoriesById()
 
 async function fetchProductsByCategoryId() {
     const response = await fetch(`/data/${categoryId}`);
-    console.log(response);
 
     if (response.status !== 200) {
         Notiflix.Notify.failure('Product was not found')
@@ -49,7 +41,6 @@ async function fetchProductsByCategoryId() {
     }
     console.log('>>>>> found products by id in ui >>>>', response);
     const products = await response.json();
-    console.log(products);
 
     products.map((product) => {
         productsList.insertAdjacentHTML('beforeend', productsMarkUp(product))

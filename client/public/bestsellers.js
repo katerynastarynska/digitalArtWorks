@@ -20,7 +20,6 @@ async function fetchCategoriesById() {
 
 function categoryItemMarkUp(category) {
   const categoryLink = `/categories/products?categoryId=${category._id}`;
-  console.log(categoryLink);
   return `
   <li><a class="dropdown-item" href="${categoryLink}">${category.title}</a></li>
   `
@@ -29,7 +28,6 @@ function categoryItemMarkUp(category) {
 fetchCategoriesById()
 
 const bestsellersList = document.querySelector('.best-sellers__list')
-console.log(bestsellersList);
 
 async function fetchBestsellers() {
     const response = await fetch('/products-data/bestsellers');

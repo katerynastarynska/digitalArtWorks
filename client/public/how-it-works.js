@@ -1,7 +1,6 @@
 async function fetchCategoriesById() {
 
     const categoriesMenu = document.querySelector('.dropdown-menu');
-    console.log(categoriesMenu);
 
     const response = await fetch('/categories-data')
     console.log('>>>>> found categories by id in ui INDEX >>>>', response);

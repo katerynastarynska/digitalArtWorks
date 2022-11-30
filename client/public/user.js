@@ -1,13 +1,11 @@
 const userInfo = document.querySelector('.user-info')
-console.log(userInfo);
 
 async function fetchCategoriesById() {
 
   const categoriesMenu = document.querySelector('.dropdown-menu');
-  console.log(categoriesMenu);
 
   const response = await fetch('/categories-data')
-  console.log('>>>>> found categories by id in ui INDEX >>>>', response);
+  console.log('>>>>> found categories by id in ui>>>>', response);
 
   if (response.status !== 200) {
       Notiflix.Notify.failure('Category was not found')
@@ -23,7 +21,6 @@ async function fetchCategoriesById() {
 
 function categoryItemMarkUp(category) {
   const categoryLink = `/categories/products?categoryId=${category._id}`;
-  console.log(categoryLink);
   return `
   <li><a class="dropdown-item" href="${categoryLink}">${category.title}</a></li>
   `
@@ -32,11 +29,8 @@ function categoryItemMarkUp(category) {
 fetchCategoriesById()
 
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-console.log(urlParams);
 const userId = urlParams.get('userId');
-console.log(userId);
 
 async function fetchUser() {
     const response = await fetch(`/user/${userId}`);

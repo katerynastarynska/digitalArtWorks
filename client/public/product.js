@@ -1,20 +1,14 @@
 console.log("product");
 
 const productEl = document.querySelector(".product-wrap")
-console.log(productEl);
 
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-console.log(urlParams);
-
 const productId = urlParams.get('productId');
-console.log(productId);
 
 async function fetchCategoriesById() {
 
   const categoriesMenu = document.querySelector('.dropdown-menu');
-  console.log(categoriesMenu);
 
   const response = await fetch('/categories-data')
   console.log('>>>>> found categories by id in ui INDEX >>>>', response);
@@ -33,7 +27,6 @@ async function fetchCategoriesById() {
 
 function categoryItemMarkUp(category) {
   const categoryLink = `/categories/products?categoryId=${category._id}`;
-  console.log(categoryLink);
   return `
     <li><a class="dropdown-item" href="${categoryLink}">${category.title}</a></li>
     `

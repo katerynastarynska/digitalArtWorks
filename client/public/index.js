@@ -1,8 +1,5 @@
-// import { fetchCategoriesById } from './util.m.js';
-console.log("index");
+const bestsellersList = document.querySelector('.best-sellers__list');
 
-const bestsellersList = document.querySelector('.best-sellers__list')
-console.log(bestsellersList);
 async function fetchCategoriesById() {
 
   const categoriesMenu = document.querySelector('.dropdown-menu');
@@ -42,10 +39,8 @@ async function fetchBestsellers() {
     }
     console.log('>>>>> found products by isBestseller in ui >>>>', response);
     const bestsellers = await response.json();
-    console.log(bestsellers);
 
     const mainBestsellers = bestsellers.slice(0, 8);
-    console.log(mainBestsellers);
 
     mainBestsellers.map((bestseller) => {
         bestsellersList.insertAdjacentHTML('beforeend', bestsellersMarkUp(bestseller))

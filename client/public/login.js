@@ -1,5 +1,4 @@
 const loginEl = document.querySelector('.login-form')
-console.log(loginEl);
 
 async function fetchCategoriesById() {
 
