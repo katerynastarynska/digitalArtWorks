@@ -95,10 +95,15 @@ function isFormDataValid(formData) {
         Notiflix.Notify.failure('Please confirm your password');
         return false;
     }
-    if (formData.password === !formData.passRepeat) {
+    if (formData.password.length < 8) {
+        Notiflix.Notify.failure('Your passwords should be at least 8 symbols');
+        return false;
+    }
+    if (formData.password != formData.passRepeat) {
         Notiflix.Notify.failure('Your passwords doesn`t match');
         return false;
     }
+  
     if (!formData.terms) {
         Notiflix.Notify.failure('Please agree all statements in "Terms of service"');
         return false;

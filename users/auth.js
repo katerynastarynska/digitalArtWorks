@@ -2,11 +2,11 @@ const jwt = require('jsonwebtoken');
 
 async function auth(req, res, next) {
     const cookies = req.cookies;
-    console.log(cookies);
+    console.log("cookies", cookies);
     if (cookies.token) {
         try {
             const verifiedToken = await jwt.verify(cookies.token, "SECRET_KEY")
-            console.log(verifiedToken)
+            console.log("verifiedToken", verifiedToken)
             if (verifiedToken && verifiedToken.userId) {
                 req.userId = verifiedToken.userId
                 next()

@@ -10,8 +10,14 @@ const productSchema = new Schema({
     price: Number,
     category_id: String,
     isBestseller: Boolean,
-    options: Array,
-    quantity: Number,
+    options: {
+        type: Array,
+        required: true,
+    },
+    quantity: {
+        type: Number,
+        required: true,
+    },
     personalization: String,
     description: String,
 });

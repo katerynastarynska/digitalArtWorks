@@ -97,68 +97,18 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">
-                        <div class="d-flex align-items-center">
-                          <img
-                            src="#"
-                            class="img-fluid rounded-3"
-                            style="width: 120px"
-                            alt=""
-                          />
-                          <div class="flex-column ms-4">
-                            <p class="mb-2">Title:</p>
-                            <p class="mb-0">Size and shape:</p>
-                          </div>
-                        </div>
-                      </th>
-                      <td class="align-middle">
-                        <p class="mb-0" style="font-weight: 500">Digital</p>
-                      </td>
-                      <td class="align-middle">
-                        <div class="d-flex flex-row">
-                          <button
-                            class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                          >
-                            <i class="fas fa-minus"></i>
-                          </button>
-
-                          <input
-                            id="form1"
-                            min="0"
-                            name="quantity"
-                            value="0"
-                            type="number"
-                            class="form-control form-control-sm"
-                            style="width: 50px"
-                          />
-
-                          <button
-                            class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                          >
-                            <i class="fas fa-plus"></i>
-                          </button>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <p class="mb-0" style="font-weight: 500">$0.00</p>
-                      </td>
-                    </tr>
+                    <tr class="order-details"></tr>
                   </tbody>
                 </table>
               </div>
-
-              <hr />
-
+          
               <div
                 class="checkout-card card shadow-2-strong mb-5 mb-lg-0"
                 style="border-radius: 16px"
               >
                 <div class="card-body p-4">
                   <div class="row">
-                    <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
+                    <!-- <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
                       <form>
                         <div class="d-flex flex-row pb-3">
                           <div class="d-flex align-items-center pe-2">
@@ -222,7 +172,8 @@
                           </div>
                         </div>
                       </form>
-                    </div>
+                    </div> -->
+
                     <div class="col-md-6 col-lg-4 col-xl-6">
                       <div class="row">
                         <div class="col-12 col-xl-6">
@@ -235,7 +186,7 @@
                               placeholder="John Smith"
                             />
                             <label class="form-label" for="typeName"
-                              >Name on card</label
+                              >Customer name</label
                             >
                           </div>
 
@@ -244,66 +195,36 @@
                               type="text"
                               id="typeExp"
                               class="form-control form-control-lg"
-                              placeholder="MM/YY"
+                              placeholder="test@test.com"
                               size="7"
                               id="exp"
-                              minlength="7"
-                              maxlength="7"
                             />
                             <label class="form-label" for="typeExp"
-                              >Expiration</label
+                              >Email</label
                             >
                           </div>
                         </div>
-                        <div class="col-12 col-xl-6">
-                          <div class="form-outline mb-4 mb-xl-5">
-                            <input
-                              type="text"
-                              id="typeText"
-                              class="form-control form-control-lg"
-                              siez="17"
-                              placeholder="1111 2222 3333 4444"
-                              minlength="19"
-                              maxlength="19"
-                            />
-                            <label class="form-label" for="typeText"
-                              >Card Number</label
-                            >
-                          </div>
-
-                          <div class="form-outline mb-4 mb-xl-5">
-                            <input
-                              type="password"
-                              id="typeText"
-                              class="form-control form-control-lg"
-                              placeholder="&#9679;&#9679;&#9679;"
-                              size="1"
-                              minlength="3"
-                              maxlength="3"
-                            />
-                            <label class="form-label" for="typeText">Cvv</label>
-                          </div>
-                        </div>
+                  
                       </div>
                     </div>
                     <div class="col-lg-4 col-xl-3">
                       <div
-                        class="d-flex justify-content-between"
+                        class="d-flex justify-content-between "
                         style="font-weight: 500"
                       >
-                        <p class="mb-2">Subtotal</p>
-                        <p class="mb-2">$0.00</p>
+                        <p class="mb-2">Total</p>
+                        <p class="mb-2 order-total">$0.00</p>
                       </div>
 
                       <hr class="my-4" />
 
-                      <div
+                      <!-- <div
                         class="d-flex justify-content-between mb-4"
                         style="font-weight: 500"
                       >
                         <p class="mb-2">Total (tax included)</p>
                         <p class="mb-2">$0.00</p>
-                      </div>
+                      </div> -->
 
                       <button
                         type="button"
