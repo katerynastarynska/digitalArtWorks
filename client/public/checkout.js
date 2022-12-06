@@ -1,6 +1,5 @@
 console.log("checkout");
 
-
 async function fetchCategoriesById() {
 
     const categoriesMenu = document.querySelector('.dropdown-menu');
@@ -44,12 +43,18 @@ function orderMarkUp(order) {
     orderTotal.innerText = `$${price * parseFloat(order.quantity).toFixed(2)}`
     console.log(orderTotal);
 
+  let checkoutBtn = document.querySelector('.checkout-btn')
+  console.log(checkoutBtn);
+  let orderSummary = document.querySelector('.checkout')
+  orderSummary.textContent = `Checkout: ${orderTotal.innerText}`
+  console.log(orderSummary);
+
     return `
 <th scope="row">
   <div class="flex-column ms-2">
     <p class="mb-2">Title: ${order.title}</p>
     <p class="mb-2">Size and shape: ${order.option}</p>
-    <p class="mb-2">Your comment: ${order.comment}</p>
+    <p class="mb-2">Your comment: ${order.comment || ''}</p>
   </div>
 </th>
 <td class="align-middle">
@@ -70,10 +75,7 @@ function orderMarkUp(order) {
 </td>
 <td class="align-middle">
   <p class="mb-0" style="font-weight: 500">$${price}</p>
-</td>`
-
+</td>
+`
 }
 
-// let orderTotal = document.querySelector('.order-total')
-// orderTotal.innerText = `$${price * parseFloat(order.quantity)}`
-// console.log(orderTotal);

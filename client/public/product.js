@@ -90,10 +90,6 @@ async function fetchProductsByProductId() {
       Notiflix.Notify.failure('Please select a quantity');
       return false;
     }
-    if (!formOrderData.comment || formOrderData.comment === "") {
-      Notiflix.Notify.failure('Please provide your comment');
-      return false;
-    }
     return true;
   }
 
@@ -102,7 +98,8 @@ async function fetchProductsByProductId() {
 fetchProductsByProductId()
 
 function productMarkUp(product) {
-  let res = ''; res += `
+  let res = '';
+  res += `
 <div class="product-description">
   <img
     src="${product.image}"
@@ -129,7 +126,7 @@ function productMarkUp(product) {
             <option selected>Selest size and shape</option>
             `
   product.options.forEach((option) => {
-    console.log('--------------------------option ', option); res += `
+    res += `
             <option value="${option}">${option}</option>
             `
   })
