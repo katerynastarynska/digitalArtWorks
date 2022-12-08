@@ -331,3 +331,6 @@ justify-content: center;
 	color:#fff;
 	margin-left: 2px;
 }
+.checkout-link {
+  text-decoration: none;
+}

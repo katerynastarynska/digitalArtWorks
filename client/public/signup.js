@@ -29,6 +29,11 @@ function categoryItemMarkUp(category) {
 
 fetchCategoriesById()
 
+
+let signUpBtn = document.querySelector('.signup-btn')
+console.log(signUpBtn.innerHTML);
+// signUpBtn.addEventListener('submit', onSignUpBtnSubmit);
+
 async function onFormSubmit(evt) {
     evt.preventDefault();
 
@@ -48,6 +53,7 @@ async function onFormSubmit(evt) {
         terms,
     }
     const validatedForm = isFormDataValid(formData);
+    const USER_KEY = 'user';
 
     if (validatedForm) {
         console.log(formData);
@@ -60,19 +66,37 @@ async function onFormSubmit(evt) {
                 address: formData.address,
                 terms: formData.terms,
             }),
-
             headers: {
                 "Content-Type": "application/json; charset=UTF-8",
             }
+
         });
+
         formEl.reset();
         console.log(response)
+        console.log(formData.name);
         if (response.status !== 200) {
             const resBody = await response.json()
+            console.log(resBody);
             Notiflix.Notify.failure('Unable to create a new user, please check your information!');
         }
+
+        if (response.status === 200) {
+            console.log(formData.name);
+            localStorage.setItem(USER_KEY, JSON.stringify(formData));
+            window.location = '/';
+        }
     }
+    // getUserByName()
 }
+
+async function getUserByName() {
+
+    const userName = await JSON.parse(window.localStorage.getItem('user'))
+    signUpBtn.innerHTML = `Hello, ${userName.userName}`;
+
+}
+getUserByName()
 
 function isFormDataValid(formData) {
     if (!formData.name || formData.name === "") {
@@ -103,10 +127,13 @@ function isFormDataValid(formData) {
         Notiflix.Notify.failure('Your passwords doesn`t match');
         return false;
     }
-  
+
     if (!formData.terms) {
         Notiflix.Notify.failure('Please agree all statements in "Terms of service"');
         return false;
     }
     return true;
 }
+
+
+// localStorage.getItem('name') > 'Hello aname' : btn

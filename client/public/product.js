@@ -34,6 +34,15 @@ function categoryItemMarkUp(category) {
 
 fetchCategoriesById()
 
+let signUpBtn = document.querySelector('.signup-btn')
+async function getUserByName() {
+
+  const userName = await JSON.parse(window.localStorage.getItem('user'));
+  signUpBtn.innerHTML = `Hello, ${userName.userName}`;
+
+}
+getUserByName() 
+
 async function fetchProductsByProductId() {
   const response = await fetch(`/data-product/${productId}`);
   console.log(response);

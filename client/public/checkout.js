@@ -1,34 +1,41 @@
-console.log("checkout");
-
 async function fetchCategoriesById() {
 
-    const categoriesMenu = document.querySelector('.dropdown-menu');
-    console.log(categoriesMenu);
+  const categoriesMenu = document.querySelector('.dropdown-menu');
+  console.log(categoriesMenu);
 
-    const response = await fetch('/categories-data')
-    console.log('>>>>> found categories by id in ui INDEX >>>>', response);
+  const response = await fetch('/categories-data')
+  console.log('>>>>> found categories by id in ui INDEX >>>>', response);
 
-    if (response.status !== 200) {
-        Notiflix.Notify.failure('Category was not found')
-        return;
-    }
-    const categories = await response.json()
-    console.log(categories);
+  if (response.status !== 200) {
+    Notiflix.Notify.failure('Category was not found')
+    return;
+  }
+  const categories = await response.json()
+  console.log(categories);
 
-    categories.map((category) => {
-        categoriesMenu.insertAdjacentHTML('beforeend', categoryItemMarkUp(category))
-    })
+  categories.map((category) => {
+    categoriesMenu.insertAdjacentHTML('beforeend', categoryItemMarkUp(category))
+  })
 }
 
 function categoryItemMarkUp(category) {
-    const categoryLink = `/categories/products?categoryId=${category._id}`;
-    console.log(categoryLink);
-    return `
+  const categoryLink = `/categories/products?categoryId=${category._id}`;
+  return `
     <li><a class="dropdown-item" href="${categoryLink}">${category.title}</a></li>
     `
 }
 
 fetchCategoriesById()
+
+let signUpBtn = document.querySelector('.signup-btn');
+
+async function getUserByName() {
+
+  const userName = await JSON.parse(window.localStorage.getItem('user'));
+  signUpBtn.innerHTML = `Hello, ${userName.userName}`;
+
+}
+getUserByName()
 
 const orderDetails = document.querySelector('.order-details')
 console.log(orderDetails);
@@ -37,11 +44,11 @@ console.log(order);
 orderDetails.insertAdjacentHTML('beforeend', orderMarkUp(order))
 
 function orderMarkUp(order) {
-    let price = parseFloat(order.option.substring(order.option.indexOf('$') + 1, order.option.lastIndexOf(')'))).toFixed(2);
+  let price = parseFloat(order.option.substring(order.option.indexOf('$') + 1, order.option.lastIndexOf(')'))).toFixed(2);
 
-    let orderTotal = document.querySelector('.order-total')
-    orderTotal.innerText = `$${price * parseFloat(order.quantity).toFixed(2)}`
-    console.log(orderTotal);
+  let orderTotal = document.querySelector('.order-total')
+  orderTotal.innerText = `$${price * parseFloat(order.quantity).toFixed(2)}`
+  console.log(orderTotal);
 
   let checkoutBtn = document.querySelector('.checkout-btn')
   console.log(checkoutBtn);
@@ -49,7 +56,7 @@ function orderMarkUp(order) {
   orderSummary.textContent = `Checkout: ${orderTotal.innerText}`
   console.log(orderSummary);
 
-    return `
+  return `
 <th scope="row">
   <div class="flex-column ms-2">
     <p class="mb-2">Title: ${order.title}</p>
@@ -79,3 +86,8 @@ function orderMarkUp(order) {
 `
 }
 
+let customerName = document.getElementById('typeName');
+customerName.value = await JSON.parse(window.localStorage.getItem('user'))?.userName;
+
+let customerEmail = document.getElementById('typeExp');
+customerEmail.value = await JSON.parse(window.localStorage.getItem('user'))?.userEmail;

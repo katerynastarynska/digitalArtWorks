@@ -1,5 +1,3 @@
-const bestsellersList = document.querySelector('.best-sellers__list');
-
 async function fetchCategoriesById() {
 
   const categoriesMenu = document.querySelector('.dropdown-menu');
@@ -30,6 +28,18 @@ function categoryItemMarkUp(category) {
 
 fetchCategoriesById();
 
+let signUpBtn = document.querySelector('.signup-btn');
+
+async function getUserByName() {
+
+  const userName = await JSON.parse(window.localStorage.getItem('user'));
+  signUpBtn.innerHTML = `Hello, ${userName.userName}`;
+
+}
+getUserByName() 
+
+const bestsellersList = document.querySelector('.best-sellers__list');
+
 async function fetchBestsellers() {
     const response = await fetch('/products-data/bestsellers');
 
@@ -37,7 +47,6 @@ async function fetchBestsellers() {
         Notiflix.Notify.failure('Product was not found')
         return;
     }
-    console.log('>>>>> found products by isBestseller in ui >>>>', response);
     const bestsellers = await response.json();
 
     const mainBestsellers = bestsellers.slice(0, 8);
@@ -60,6 +69,6 @@ function bestsellersMarkUp(bestseller) {
         <p class="card-text">From $ ${bestseller.price} CAD</p>
       </div>
     </div>
-  </a>  `
+  </a>`
 }
 

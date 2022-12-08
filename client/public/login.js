@@ -30,6 +30,16 @@ function categoryItemMarkUp(category) {
 
 fetchCategoriesById()
 
+let signUpBtn = document.querySelector('.signup-btn')
+
+
+async function getUserByName() {
+// localStorage.removeItem('user')
+    const userName = await JSON.parse(window.localStorage.getItem('user'))
+    signUpBtn.innerHTML = `Hello, ${userName.userName}`;
+}
+getUserByName()
+
 loginEl.addEventListener('submit', loginUser);
 
 async function loginUser(evt) {
@@ -51,13 +61,16 @@ async function loginUser(evt) {
                 "Content-Type": "application/json; charset=UTF-8",
             }
         });
-        loginEl.reset();
+        // loginEl.reset();
         const userInfo = await response.json();
         console.log(userInfo);
+        const USER_NAME = 'user';
 
         if (response.status === 200) {
+            console.log(userInfo.userName);
+            localStorage.setItem(USER_NAME, JSON.stringify(userInfo));
+
             window.location = `/user?userId=${userInfo.userId}`;
-            // window.location = '/user';
         } else if (response.status === 401) {
             const resBody = await response.json()
             Notiflix.Notify.failure('Unable to login, please check your information');
@@ -69,6 +82,8 @@ async function loginUser(evt) {
         }
     }
 }
+    
+
 
 function isLoginFormDataValid(formData) {
     if (!formData.email || formData.email === "") {
