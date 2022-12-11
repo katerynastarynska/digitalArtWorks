@@ -2,7 +2,7 @@ const { getConnection, Schema, mongoose } = require("../database/database");
 getConnection();
 
 const userSchema = new Schema({
-    name: String,
+    userName: String,
     email: {
         type: String,
         required: true,

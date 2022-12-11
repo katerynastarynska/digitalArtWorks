@@ -29,23 +29,21 @@ function categoryItemMarkUp(category) {
 
 fetchCategoriesById()
 
-
 let signUpBtn = document.querySelector('.signup-btn')
 console.log(signUpBtn.innerHTML);
-// signUpBtn.addEventListener('submit', onSignUpBtnSubmit);
 
 async function onFormSubmit(evt) {
     evt.preventDefault();
 
     const formElements = evt.currentTarget.elements;
-    const name = formElements.nameId.value;
+    const userName = formElements.nameId.value;
     const email = formElements.emailId.value;
     const password = formElements.passwordId.value;
     const passRepeat = formElements.passRepeatId.value;
     const address = formElements.addressId.value;
     const terms = formElements.checkbox.checked;
     const formData = {
-        name,
+        userName,
         email,
         password,
         passRepeat,
@@ -60,7 +58,7 @@ async function onFormSubmit(evt) {
         const response = await fetch('/signup', {
             method: "POST",
             body: JSON.stringify({
-                name: formData.name,
+                userName: formData.userName,
                 email: formData.email,
                 password: formData.password,
                 address: formData.address,
@@ -74,32 +72,33 @@ async function onFormSubmit(evt) {
 
         formEl.reset();
         console.log(response)
-        console.log(formData.name);
+        console.log(formData.userName);
         if (response.status !== 200) {
             const resBody = await response.json()
-            console.log(resBody);
+            console.log(',,, res body <<<<', resBody);
             Notiflix.Notify.failure('Unable to create a new user, please check your information!');
         }
 
         if (response.status === 200) {
-            console.log(formData.name);
+            console.log(formData.userName);
             localStorage.setItem(USER_KEY, JSON.stringify(formData));
-            window.location = '/';
+            // window.location = '/';
         }
     }
-    // getUserByName()
+    getUserByName()
 }
 
 async function getUserByName() {
+console.log(signUpBtn);
 
-    const userName = await JSON.parse(window.localStorage.getItem('user'))
-    signUpBtn.innerHTML = `Hello, ${userName.userName}`;
-
+    const user = await JSON.parse(window.localStorage.getItem('user'))
+    console.log(user);
+    signUpBtn.innerHTML = `Hello, ${user.userName}`;
 }
-getUserByName()
+// getUserByName()
 
 function isFormDataValid(formData) {
-    if (!formData.name || formData.name === "") {
+    if (!formData.userName || formData.userName === "") {
         Notiflix.Notify.failure('Please provide your name');
         return false;
     }

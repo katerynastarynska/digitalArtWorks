@@ -37,7 +37,7 @@ async function loginUser(userData) {
     const token = await createToken(user.id)
     return {
       userId: user.id,
-      userName: user.name,
+      userName: user.userName,
       userEmail: user.email,
       userAddress: user.address,
       token

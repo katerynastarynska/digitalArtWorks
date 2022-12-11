@@ -58,7 +58,7 @@ fetchUser()
 
 function userMarkUp(user) {
     return `
-    <h2 class="user-title">Hello, ${user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
+    <h2 class="user-title">Hello, ${user.userName.charAt(0).toUpperCase() + user.userName.slice(1)}!</h2>
     <p class="text-white-50"></p>
     <div class="card-body p-4">
       <h6>Your Information</h6>

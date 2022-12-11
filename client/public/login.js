@@ -32,11 +32,10 @@ fetchCategoriesById()
 
 let signUpBtn = document.querySelector('.signup-btn')
 
-
 async function getUserByName() {
-// localStorage.removeItem('user')
-    const userName = await JSON.parse(window.localStorage.getItem('user'))
-    signUpBtn.innerHTML = `Hello, ${userName.userName}`;
+    // localStorage.removeItem('user')
+    const user = await JSON.parse(window.localStorage.getItem('user'))
+    signUpBtn.innerHTML = `Hello, ${user.userName}`;
 }
 getUserByName()
 
@@ -64,11 +63,11 @@ async function loginUser(evt) {
         // loginEl.reset();
         const userInfo = await response.json();
         console.log(userInfo);
-        const USER_NAME = 'user';
+        const USER_KEY = 'user';
 
         if (response.status === 200) {
             console.log(userInfo.userName);
-            localStorage.setItem(USER_NAME, JSON.stringify(userInfo));
+            localStorage.setItem(USER_KEY, JSON.stringify(userInfo));
 
             window.location = `/user?userId=${userInfo.userId}`;
         } else if (response.status === 401) {
@@ -82,8 +81,6 @@ async function loginUser(evt) {
         }
     }
 }
-    
-
 
 function isLoginFormDataValid(formData) {
     if (!formData.email || formData.email === "") {
