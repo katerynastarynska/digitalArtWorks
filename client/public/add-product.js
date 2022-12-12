@@ -46,10 +46,12 @@ async function selectCategory() {
 
     let categoriesInnerHtml = "";
     if (categories && categories[0]) {
-        categories.unshift({ title: 'Select category' })
+        categories.unshift({ _id: 'uniqueid', title: 'Select category' })
+
+        console.log(categories)
 
         categories.forEach((category) => {
-            categoriesInnerHtml += `<option value=${category.title}>${category.title}</option>`;
+            categoriesInnerHtml += `<option value=${category._id}>${category.title}</option>`;
         });
     }
 
@@ -150,7 +152,7 @@ async function onFormSubmit(evt) {
     const formElements = evt.currentTarget.elements;
     const title = formElements.productNameId.value;
     const price = formElements.productPriceId.value;
-    const category = formElements.selectCategory.value;
+    const category_id = formElements.selectCategory.value;
     const quantity = formElements.productQuantityId.value;
     const options = formElements.productOptionId.value;
     const image = imageUrl;
@@ -161,7 +163,7 @@ async function onFormSubmit(evt) {
     const formData = {
         title,
         price,
-        category,
+        category_id,
         quantity,
         options,
         image,
@@ -209,7 +211,7 @@ function isFormDataValid(formData) {
         Notiflix.Notify.failure('Please provide product options');
         return false;
     }
-    if (formData.category === 'Select category') {
+    if (formData.category_id === 'uniqueid') {
         Notiflix.Notify.failure('Please provide category');
         return false;
     }
