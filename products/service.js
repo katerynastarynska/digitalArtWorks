@@ -33,8 +33,19 @@ async function getProductByProductId(paramsProductId) {
     }
 }
 
-module.exports = {
+async function addProductData(product) {
+    console.log('>>> product in service >>>> ', product);
+    try {
+        await Product.create(product);
+    } catch (error) {
+        console.log(error);
+    }
+    return;
+}
+
+module.exports = { 
     getProductsByCategoryId,
     getBestsellers,
-    getProductByProductId
+    getProductByProductId,
+    addProductData
 }

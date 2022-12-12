@@ -82,7 +82,7 @@ async function onFormSubmit(evt) {
         if (response.status === 200) {
             console.log(formData.userName);
             localStorage.setItem(USER_KEY, JSON.stringify(formData));
-            // window.location = '/';
+            window.location = '/';
         }
     }
     getUserByName()

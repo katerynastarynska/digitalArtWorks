@@ -80,9 +80,9 @@ async function fetchProductsByProductId() {
       window.location = '/checkout';
     }
 
-    //   event.currentTarget.reset();
-    //   localStorage.removeItem(ORDER_KEY);
-    //   formOrderData = {};
+      // event.currentTarget.reset();
+      // localStorage.removeItem(ORDER_KEY);
+      // formOrderData = {};
     // }
   }
   console.log('data', formOrderData);

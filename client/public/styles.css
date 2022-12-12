@@ -156,7 +156,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 80px;
- }
+}
 
 /* //product// */
 
@@ -170,7 +170,7 @@ li {
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
-} 
+}
 .product-card {
   border: 1px solid rgba(33, 33, 33, 0.2);
 
@@ -181,7 +181,6 @@ li {
   color: #000;
   margin-right: 15px;
   margin-bottom: 20px;
-
 }
 .product-description {
   margin-right: 40px;
@@ -202,7 +201,6 @@ li {
 .product-image {
   margin-bottom: auto;
   margin-right: 40px;
-
 }
 /* .product-text {
   display: flex;
@@ -283,7 +281,8 @@ li {
 }
 .signup-title,
 .login-title,
-.user-title {
+.user-title,
+.add-product-title {
   margin-bottom: 15px;
 }
 .register-btn,
@@ -317,20 +316,50 @@ u {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-.user-border{
-	display: flex;
-	align-items: center;
-justify-content: center;
+.user-border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .user-border:hover {
-	border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
 }
 .user-outline {
-	font-size: 16px;
-	font-weight: 700;
-	color:#fff;
-	margin-left: 2px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 2px;
 }
 .checkout-link {
   text-decoration: none;
+}
+
+/* add-product */
+
+.add-product-form_list {
+  margin-bottom: 16px;
+}
+.product-text_label.form-label {
+  margin-bottom: 6px;
+}
+.radio-inline {
+  margin-right: 25px;
+}
+.add-btn {
+  margin-top: 20px;
+}
+.form-control.product-image {
+  margin-bottom: 10px;
+}
+.add-product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+.add-product-card {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
