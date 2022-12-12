@@ -68,8 +68,13 @@ async function loginUser(evt) {
         if (response.status === 200) {
             console.log(userInfo.userName);
             localStorage.setItem(USER_KEY, JSON.stringify(userInfo));
+            if (userInfo.userId === "6396cfccd88b6ddce02a0896") {
+                window.location = '/add-product';
+                console.log(userInfo.userId);
+            } else {
+                window.location = `/user?userId=${userInfo.userId}`;
+            }
 
-            window.location = `/user?userId=${userInfo.userId}`;
         } else if (response.status === 401) {
             const resBody = await response.json()
             Notiflix.Notify.failure('Unable to login, please check your information');
